@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import Line from '../components/Line';
 
 export default class PeopleDetailsPage extends React.Component {
   render() {
@@ -8,31 +9,12 @@ export default class PeopleDetailsPage extends React.Component {
       <View style={styles.container}>
         <Image style={styles.avatar} source={{ uri: people.picture.large }} />
         <View style={styles.containerContent}>
-          <View style={styles.row}>
-            <Text style={styles.textInfo}>Idade: </Text>
-            <Text style={styles.textInfo}>{people.dob.age}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.textInfo}>Email: </Text>
-            <Text style={styles.textInfo}>{people.email}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.textInfo}>Rua: </Text>
-            <Text style={styles.textInfo}>{people.location.street}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.textInfo}>Cidade: </Text>
-            <Text style={styles.textInfo}>{people.location.state}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.textInfo}>Telefone: </Text>
-            <Text style={styles.textInfo}>{people.phone}</Text>
-          </View>
-          <View style={styles.row}>
-            <Text style={styles.textInfo}>Celular: </Text>
-            <Text style={styles.textInfo}>{people.cell}</Text>
-          </View>
-          
+          <Line label="Idade:" content={people.dob.age} />
+          <Line label="Email:" content={people.email} />
+          <Line label="Rua:" content={people.location.street} />
+          <Line label="Cidade" content={people.location.city} />
+          <Line label="Telefone:" content={people.phone} />
+          <Line label="Celular:" content={people.cell} />
         </View>
       </View>
     );
@@ -68,5 +50,8 @@ const styles = StyleSheet.create({
   textInfo: {
     fontSize: 18,
     color: 'gray'
+  },
+  bold: {
+    fontWeight: 'bold'
   }
 });
