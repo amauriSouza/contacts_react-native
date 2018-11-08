@@ -25,22 +25,21 @@ export default class PeoplePage extends React.Component {
             peoples: results,
             loading: false
           });
-        });
+        })
     }, 300);
   }
 
   render() {
     return (
-      <View>
-        {this.state.loading ? (
-          <ActivityIndicator size="large" color="#278c39" />
-        ) : null}
+      <View style={styles.spinnerLoading}>
+        {this.state.loading ? <ActivityIndicator size="large" color="#278c39" /> : 
         <PeopleList
           peoples={this.state.peoples}
           onPressItem={pageParams => {
             this.props.navigation.navigate('PeopleDetails', pageParams);
           }}
-        />r
+        />
+        }
       </View>
     );
   }
