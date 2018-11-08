@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
   lineText: {
     fontSize: 18,
     paddingLeft: 15,
-    flex: 7
+    flex: 7,
+    color: 'gray'
   },
   avatar: {
     aspectRatio: 1,
